@@ -15,6 +15,9 @@ $(document).ready( () => {
 
   $('#delete-one').on('click', (e) => {
      console.log("delete-one");
+     event.preventDefault();
+     const idNumberDelete = $("#character-id-delete").val();
+     charactersAPI.deleteOneRegister(idNumberDelete);
   });
 
   $('#edit-character-form').on('submit', (e) => {
@@ -23,5 +26,11 @@ $(document).ready( () => {
 
   $('#new-character-form').on('submit', (e) => {
      console.log("new-char");
+     event.preventDefault();
+     const charName   = $("#char-name").val();
+     const charJob    = $("#char-job").val();
+     const charDebt   = $("#char-debet").val();
+     const charWeapon = $("#char-weapon").val();
+     charactersAPI.createOneRegister(charName, charJob, charWeapon, charDebt);
   });
 });
